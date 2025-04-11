@@ -10,10 +10,10 @@ The tech stack of the solution:
 - **.epub** book as source
 
 ## Pipeline
-
-1. `scraper.py`: Parse `.epub` → insert paragraphs into Neo4j `TEXT` nodes with `text` attribute.
-2. `vectorise.py`: Embed `TEXT.text` via Ollama → save to `TEXT.embedding`.
-3. `search.py "query..."`: 
+1. Run `ollama pull llama3.1:8b-instruct-q5_1` then `ollama serve`
+2. `scraper.py`: Parse `.epub` → insert paragraphs into Neo4j `TEXT` nodes with `text` attribute.
+3. `vectorise.py`: Embed `TEXT.text` via Ollama → save to `TEXT.embedding`.
+4. `search.py "query..."`: 
    Embed query
    - Cosine similarity search
    - Top 3 results → prompt LLM for response.
